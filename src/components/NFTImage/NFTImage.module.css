@@ -1,12 +1,14 @@
 .image-container{
     width: 80vw;
     min-width: 350px;
-    height: 60vh;
+    max-width: 640px;
+    height: 40vh;
     min-height: 350px;
+    max-height: 640px;
     background-color: #1b1226;
     border-radius: 1rem;
     display: flex;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     align-items: center;
     justify-content: center;
     text-align: center;
