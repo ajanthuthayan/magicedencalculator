@@ -20,3 +20,10 @@ code {
 #8e8e8e
 #1c1326
 #09080d */
+
+#root{
+  align-items: center;
+  background-color: #09080d;
+  display: flex;
+  flex-direction: column;
+}
