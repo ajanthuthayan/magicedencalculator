@@ -1,0 +1,19 @@
+.image-container{
+    width: 80vw;
+    min-width: 350px;
+    height: 60vh;
+    min-height: 350px;
+    background-color: #1b1226;
+    border-radius: 1rem;
+    display: flex;
+    margin-bottom: 4rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.image-container h3 {
+    font-size: 3rem;
+    color: #938a9f;
+}

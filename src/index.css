@@ -7,6 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /* Magic Eden primary color */
   background-color: #09080d;
+  min-width: 375px;
 }
 
 code {
@@ -23,7 +24,9 @@ code {
 
 #root{
   align-items: center;
+  justify-content: center;
   background-color: #09080d;
   display: flex;
   flex-direction: column;
+
 }
