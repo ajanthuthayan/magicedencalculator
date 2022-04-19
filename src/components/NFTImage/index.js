@@ -1,12 +1,23 @@
 import React from "react";
 import styles from "./NFTImage.module.css";
 
-function NFTImage() {
+function NFTImage(props) {
   // If no link is entered <-- This would be the initial way too
-  if (true) {
-    return <div className={styles["image-container"]}><h3>NFT Image</h3></div>;
+
+  const { imageLink } = props;
+
+  if (!imageLink) {
+    return (
+      <div className={styles["image-container1"]}>
+        <h3>NFT Image</h3>
+      </div>
+    );
   } else {
-    return;
+    return (
+      <div className={styles["image-container2"]}>
+        <img src={imageLink} alt="NFT" />;
+      </div>
+    );
   }
 }
 

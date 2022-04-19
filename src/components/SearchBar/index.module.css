@@ -1,19 +1,37 @@
 .search-container {
+  width: 80vw;
+  height: auto;
   display: flex;
   justify-content: center;
+  margin-bottom: 2rem;
 }
 
 input[type="text"] {
-  width: 85vw;
-  min-width: 350px;
+  width: 90%;
+  min-width: 300px;
   padding: 12px 20px;
-  margin-bottom: 2rem;
   border: 2px solid #24182f;
   background-color: #1c1326;
   color: #8e8e8e;
+  display: inline-block;
 }
 
 input:focus {
   outline: none;
   border: 2px solid #f5f5f5;
+}
+
+button {
+  width: 10%;
+  background-color: #e93a88;
+  min-width: 60px;
+  display: inline-block;
+  color: #f5f5f5;
+  outline: none;
+  border: none;
+  height: auto;
+}
+
+button:hover {
+  cursor: pointer;
 }
