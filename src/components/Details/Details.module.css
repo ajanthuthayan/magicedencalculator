@@ -20,12 +20,15 @@
 }
 
 .sell-input {
-  width: 4rem;
-  height: 2rem;
+  width: 7rem;
+  height: 2.5rem;
   border: 2px solid rgba(245, 245, 245, 0.361);
   background-color: #1c1326;
   color: #8e8e8e;
   margin-right: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
 }
 
 .sell-input:focus {
