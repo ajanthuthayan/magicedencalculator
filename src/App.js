@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment, useState } from "react";
+import SearchBar from "./components/SearchBar";
+import NFTMain from "./components/NFTMain";
+import Details from "./components/Details";
+import "./App.css";
 
 function App() {
+  const [link, setLink] = useState("");
+  const [details, setDetails] = useState({
+    name: "",
+    royaltyFee: "",
+    imageLink: "",
+  });
+
+  const onLinkChange = (event) => {
+    setLink(event.target.value);
+  };
+
+  const onSearch = (event) => {
+    fetch("http://localhost:3000/details", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ magicEdenLink: link }),
+    })
+      .then((response) => response.json())
+      .then((nftDetails) => {
+        setDetails(nftDetails);
+      });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <h1>Magic Eden Calculator</h1>
+      <SearchBar onLinkChange={onLinkChange} onSearch={onSearch} />
+      <NFTMain imageLink={details.imageLink} name={details.name} />
+      <Details royaltyFee={details.royaltyFee} />
+    </Fragment>
   );
 }
 

@@ -1,0 +1,121 @@
+.sell-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-bottom: 1rem;
+}
+
+.sell-container h2 {
+  color: #938a9f;
+  height: 50%;
+  text-align: right;
+}
+
+.sell-container div {
+  display: flex;
+  align-items: center;
+  color: #938a9f;
+  font-weight: 600;
+}
+
+.sell-input {
+  width: 4rem;
+  height: 2rem;
+  border: 2px solid rgba(245, 245, 245, 0.361);
+  background-color: #1c1326;
+  color: #8e8e8e;
+  margin-right: 0.5rem;
+}
+
+.sell-input:focus {
+  outline: none;
+}
+
+.details-container {
+  width: 80vw;
+  min-width: 350px;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.totalfee-row {
+  background-color: #1b1226;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.totalfee-row h3 {
+  color: #938a9f;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.totalfee-row h4 {
+  color: #e93a3a;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-left: 2rem;
+}
+
+.payout-row {
+  background-color: #1b1226;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.payout-row h3 {
+  color: #938a9f;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.payout-row h4 {
+  color: #3ae974;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-left: 2rem;
+}
+
+.fee-row {
+  background-color: #1b1226;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  border-radius: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.fee-row h3 {
+  color: #e93a88;
+  font-size: 1.25rem;
+  font-weight: 400;
+  width: 50%;
+}
+
+.fee-row h4 {
+  color: #938a9f;
+  width: 30%;
+  text-align: center;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
