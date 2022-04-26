@@ -3,7 +3,7 @@ import styles from "./Details.module.css";
 
 function Details(props) {
   const [salePrice, setSalePrice] = useState("");
-  const { name, royaltyFee } = props;
+  const { royaltyFee } = props;
 
   const transactionFee = 2;
   const totalFee = (salePrice * ((transactionFee + royaltyFee) / 100)).toFixed(
@@ -11,9 +11,6 @@ function Details(props) {
   );
   const payout = (salePrice - totalFee).toFixed(3);
 
-  const onInputChange = (event) => {
-    event.target.value = event.target.value.slice(0, 7);
-  };
 
   const changeSalePrice = (event) => {
     setSalePrice(event.target.value);
@@ -26,12 +23,13 @@ function Details(props) {
         <div>
           <input
             className={styles["sell-input"]}
-            maxLength={7}
-            type="number"
-            onInput={onInputChange}
+            type="text"
             value={salePrice}
             onChange={changeSalePrice}
-            step={0.01}
+            step="any"
+            placeholder="0.00"
+            maxlength="10"
+            pattern="\d{0,10}(?:\.\d{0,10})?$"
           />
           <p>SOL</p>
         </div>
