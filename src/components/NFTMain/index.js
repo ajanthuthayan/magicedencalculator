@@ -1,10 +1,8 @@
 import React from "react";
-import styles from "./NFTImage.module.css";
+import styles from "./NFTMain.module.css";
 
-function NFTImage(props) {
-  // If no link is entered <-- This would be the initial way too
-
-  const { imageLink } = props;
+function NFTMain(props) {
+  const { imageLink, name } = props;
 
   if (!imageLink) {
     return (
@@ -15,10 +13,11 @@ function NFTImage(props) {
   } else {
     return (
       <div className={styles["image-container2"]}>
-        <img src={imageLink} alt="NFT" />;
+        <h2>{name}</h2>
+        <img src={imageLink} alt="NFT" />
       </div>
     );
   }
 }
 
-export default NFTImage;
+export default NFTMain;

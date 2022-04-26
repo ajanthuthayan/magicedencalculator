@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react";
 import SearchBar from "./components/SearchBar";
-import NFTImage from "./components/NFTImage";
+import NFTMain from "./components/NFTMain";
 import Details from "./components/Details";
 import "./App.css";
 
@@ -32,8 +32,8 @@ function App() {
     <Fragment>
       <h1>Magic Eden Calculator</h1>
       <SearchBar onLinkChange={onLinkChange} onSearch={onSearch} />
-      <NFTImage imageLink={details.imageLink} />
-      <Details name={details.name} royaltyFee={details.royaltyFee} />
+      <NFTMain imageLink={details.imageLink} name={details.name} />
+      <Details royaltyFee={details.royaltyFee} />
     </Fragment>
   );
 }

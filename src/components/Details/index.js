@@ -9,7 +9,7 @@ function Details(props) {
   const totalFee = (salePrice * ((transactionFee + royaltyFee) / 100)).toFixed(
     3
   );
-  const payout = salePrice - totalFee;
+  const payout = (salePrice - totalFee).toFixed(3);
 
   const onInputChange = (event) => {
     event.target.value = event.target.value.slice(0, 7);
@@ -31,6 +31,7 @@ function Details(props) {
             onInput={onInputChange}
             value={salePrice}
             onChange={changeSalePrice}
+            step={0.01}
           />
           <p>SOL</p>
         </div>
