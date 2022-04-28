@@ -12,6 +12,10 @@
   text-align: right;
 }
 
+.sell-container p {
+  font-size: 1rem;
+}
+
 .sell-container div {
   display: flex;
   align-items: center;
@@ -20,12 +24,15 @@
 }
 
 .sell-input {
-  width: 4rem;
-  height: 2rem;
+  width: 7rem;
+  height: 2.5rem;
   border: 2px solid rgba(245, 245, 245, 0.361);
   background-color: #1c1326;
   color: #8e8e8e;
   margin-right: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
 }
 
 .sell-input:focus {
@@ -38,6 +45,7 @@
   margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
+
 }
 
 .totalfee-row {
@@ -100,6 +108,7 @@
   font-size: 1.25rem;
   font-weight: 400;
   width: 50%;
+  align-self: center;
 }
 
 .fee-row h4 {
@@ -118,4 +127,11 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+@media screen and (min-width: 1200px) {
+  .details-container {
+    max-width: 1200px;
+    margin-left: 2rem;
+  }
 }
