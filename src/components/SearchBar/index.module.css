@@ -39,3 +39,11 @@ button {
 button:hover {
   cursor: pointer;
 }
+
+
+@media screen and (min-width: 1200px) {
+  .search-container {
+    max-width: 2000px;
+  }
+}
+

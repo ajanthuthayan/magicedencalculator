@@ -12,6 +12,10 @@
   text-align: right;
 }
 
+.sell-container p {
+  font-size: 1rem;
+}
+
 .sell-container div {
   display: flex;
   align-items: center;
@@ -41,6 +45,7 @@
   margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
+
 }
 
 .totalfee-row {
@@ -103,6 +108,7 @@
   font-size: 1.25rem;
   font-weight: 400;
   width: 50%;
+  align-self: center;
 }
 
 .fee-row h4 {
@@ -121,4 +127,11 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+@media screen and (min-width: 1200px) {
+  .details-container {
+    max-width: 1200px;
+    margin-left: 2rem;
+  }
 }
