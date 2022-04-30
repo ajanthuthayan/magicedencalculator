@@ -1,0 +1,25 @@
+footer {
+  padding-top: 4rem;
+  width: 90vw;
+  color: #938a9f;
+  height: 150px;
+  text-align: center;
+}
+
+footer small {
+  display: block;
+  font-weight: 600;
+  /* background-color: red; */
+}
+
+.website {
+  font-weight: 400;
+  font-size: 0.6rem;
+}
+
+.website a:link,
+.website a:visited,
+.website a:active {
+  text-decoration: none;
+  color: #938a9f;
+}

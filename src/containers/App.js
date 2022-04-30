@@ -1,10 +1,11 @@
 import { Fragment, useState, useEffect } from "react";
-import SearchBar from "./components/SearchBar";
-import MainContent from "./components/MainContent";
-import FeeDetails from "./components/FeeDetails";
+import SearchBar from "../components/SearchBar";
+import MainContent from "../components/MainContent";
+import FeeDetails from "../components/FeeDetails";
 import "./App.css";
-import NFTMain from "./components/NFTMain";
-import ErrorMessage from "./components/ErrorMessage";
+import NFTMain from "../components/NFTMain";
+import ErrorMessage from "../components/ErrorMessage";
+import Footer from "../components/Footer";
 
 function App() {
   const [hasError, setHasError] = useState(false);
@@ -68,6 +69,7 @@ function App() {
         />
         <FeeDetails royaltyFee={details.royaltyFee} salePrice={salePrice} />
       </MainContent>
+      <Footer />
     </Fragment>
   );
 }
