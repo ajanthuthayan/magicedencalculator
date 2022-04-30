@@ -1,0 +1,10 @@
+.container {
+  width: 80vw;
+  min-width: 400px;
+  background-color: #e93a3a;
+  color: rgb(95, 33, 32);
+  padding: 0.5rem 1rem;
+  /* Negative margin-top to account for margin bottom set by SearchBar */
+  margin-top: -1.5rem;
+  margin-bottom: 2rem;
+}

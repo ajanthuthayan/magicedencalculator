@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
+
 }
 
 input[type="url"] {
@@ -20,7 +21,7 @@ input[type="url"] {
 
 input:focus {
   outline: none;
-  border: 2px solid #f5f5f5;
+  border: 2px solid #f5f5f518;
 }
 
 button {

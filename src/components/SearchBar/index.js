@@ -10,7 +10,7 @@ function SearchBar(props) {
         className={styles.input}
         type="url"
         placeholder="Enter link to a Solana NFT on MagicEden"
-        pattern="https://.*"
+        pattern="https://magiceden.io/item-details/*"
         onChange={onLinkChange}
       />
       <button onClick={onSearch}>Enter</button>
