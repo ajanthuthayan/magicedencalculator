@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import styles from "./Details.module.css";
+import React from "react";
+import styles from "./FeeDetails.module.css";
 
-function Details(props) {
-  const [salePrice, setSalePrice] = useState("");
-  const { royaltyFee } = props;
+function FeeDetails(props) {
+  const { royaltyFee, salePrice } = props;
 
   const transactionFee = 2;
   const totalFee = (salePrice * ((transactionFee + royaltyFee) / 100)).toFixed(
@@ -11,30 +10,8 @@ function Details(props) {
   );
   const payout = (salePrice - totalFee).toFixed(3);
 
-
-  const changeSalePrice = (event) => {
-    setSalePrice(event.target.value);
-  };
-
   return (
     <div className={styles[`details-container`]}>
-      <div className={styles["sell-container"]}>
-        <h2>Sale Price</h2>
-        <div>
-          <input
-            className={styles["sell-input"]}
-            type="text"
-            value={salePrice}
-            onChange={changeSalePrice}
-            step="any"
-            placeholder="0.00"
-            maxlength="10"
-            pattern="\d{0,10}(?:\.\d{0,10})?$"
-          />
-          <p>SOL</p>
-        </div>
-      </div>
-
       <div className={styles["fee-row"]}>
         <h3>Listing Fee</h3>
         <h4>FREE</h4>
@@ -65,4 +42,4 @@ function Details(props) {
   );
 }
 
-export default Details;
+export default FeeDetails;

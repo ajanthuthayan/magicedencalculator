@@ -1,11 +1,14 @@
 import { Fragment, useState } from "react";
 import SearchBar from "./components/SearchBar";
 import MainContent from "./components/MainContent";
-import NFTMain from "./components/NFTMain";
-import Details from "./components/Details";
+import NFTInfo from "./components/NFTInfo";
+import FeeDetails from "./components/FeeDetails";
 import "./App.css";
+import SaleInput from "./components/SaleInput";
+import NFTMain from "./components/NFTMain";
 
 function App() {
+  const [salePrice, setSalePrice] = useState("");
   const [link, setLink] = useState("");
   const [details, setDetails] = useState({
     name: "",
@@ -29,13 +32,21 @@ function App() {
       });
   };
 
+  const getSalePrice = (value) => {
+    setSalePrice(value);
+  };
+
   return (
     <Fragment>
       <h1>Magic Eden Calculator</h1>
       <SearchBar onLinkChange={onLinkChange} onSearch={onSearch} />
       <MainContent>
-        <NFTMain imageLink={details.imageLink} name={details.name} />
-        <Details royaltyFee={details.royaltyFee} />
+        <NFTMain
+          imageLink={details.imageLink}
+          name={details.name}
+          salePrice={getSalePrice}
+        />
+        <FeeDetails royaltyFee={details.royaltyFee} salePrice={salePrice} />
       </MainContent>
     </Fragment>
   );
