@@ -1,5 +1,6 @@
 footer {
-  padding-top: 4rem;
+  bottom: 0;
+  padding-top: rem;
   width: 90vw;
   color: #938a9f;
   height: 150px;

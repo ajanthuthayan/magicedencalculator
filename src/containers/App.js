@@ -39,7 +39,7 @@ function App() {
     if (link.includes("https://magiceden.io/item-details/")) {
       setHasError(false);
       setErrorMessage("");
-      fetch("http://localhost:3000/details", {
+      fetch("https://magicedencalculator-api.vercel.app/details", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ magicEdenLink: link }),
