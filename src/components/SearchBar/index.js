@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./index.module.css";
 
 function SearchBar(props) {
-  const { onLinkChange, onSearch } = props;
+  const { onLinkChange, onSearch, disabled } = props;
 
   return (
     <div className={styles["search-container"]}>
@@ -13,7 +13,7 @@ function SearchBar(props) {
         pattern="https://magiceden.io/item-details/*"
         onChange={onLinkChange}
       />
-      <button onClick={onSearch}>Enter</button>
+      <button onClick={onSearch} disabled={disabled}>Enter</button>
     </div>
   );
 }
