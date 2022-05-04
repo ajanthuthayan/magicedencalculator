@@ -40,7 +40,7 @@ function App() {
       setHasError(false);
       setErrorMessage("");
       fetch("https://magicedencalculator-api.vercel.app/details", {
-        method: "POST",
+        method: "GET",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ magicEdenLink: link }),
       })
