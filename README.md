@@ -23,7 +23,7 @@ Note, I used Vercel to deploy this application and whenever the fetch request on
 
 Visit the live demo [here](https://magicedencalculator.vercel.app/) to get started.
 
-#### 1.	Copy the MagicEden link for the NFT you plan on selling.
+### 1.	Copy the MagicEden link for the NFT you plan on selling.
 
    The steps you take depend on whether your listing is already live on MagicEden
 
@@ -59,7 +59,7 @@ Visit the live demo [here](https://magicedencalculator.vercel.app/) to get start
    
    Simply just find another NFT that is a part of the same collection as the one you plan to sell, and copy the link for it. Once again making sure it        follows the format of `https://magiceden.io/item-details/:tokenAddress`
    
-   #### 2.	Paste the link into the web application's search field.
+   ### 2.	Paste the link into the web application's search field.
 
    When you have your link ready, simply go to the web application, paste your link and click `enter`
    
@@ -69,7 +69,7 @@ Visit the live demo [here](https://magicedencalculator.vercel.app/) to get start
    
    When the fetch is successfully complete, you will see your NFT’s image preview available. 
    
-   #### 3.	Enter a sale price
+   ### 3.	Enter a sale price
    
    Simply enter a sale price to view a detailed breakdown of the fees at the given price.
    
