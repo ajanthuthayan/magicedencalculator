@@ -35,7 +35,7 @@ function App() {
         }
       );
       const data = await response.json();
-      setFloorPrice(data.floorPrice / floorPriceDivisor);
+      setFloorPrice((data.floorPrice / floorPriceDivisor).toFixed(2));
     }
     getFloorPrice();
   }, [details.collectionName]);
