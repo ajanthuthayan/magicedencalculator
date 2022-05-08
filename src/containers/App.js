@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState, useEffect, useCallback } from "react";
 import SearchBar from "../components/SearchBar";
 import MainContent from "../components/MainContent";
 import FeeDetails from "../components/FeeDetails";
@@ -18,7 +18,22 @@ function App() {
     name: "",
     royaltyFee: "",
     imageLink: "",
+    collectionName: "",
   });
+  const [floorPrice, setFloorPrice] = useState();
+
+  const fetchFloorPrice = useCallback(() => {
+    const floorPriceDivisor = 1000000000;
+
+    async function getFloorPrice() {
+      const response = await fetch(
+        `https://api-mainnet.magiceden.dev/v2/collections/${details.collectionName}/stats`
+      );
+      const data = await response.json();
+      setFloorPrice(data.floorPrice / floorPriceDivisor);
+    }
+    getFloorPrice();
+  }, [details.collectionName]);
 
   // Error Message, in case the API isn't responding or the mint address in the link is wrong
   useEffect(() => {
@@ -26,7 +41,10 @@ function App() {
       setHasError(true);
       setErrorMessage("An Error Occured. Fix your link, or try again later.");
     }
-  }, [details]);
+    if (details.collectionName !== "") {
+      fetchFloorPrice();
+    }
+  }, [details, fetchFloorPrice]);
 
   const onLinkChange = (event) => {
     setLink(event.target.value);
@@ -47,8 +65,11 @@ function App() {
         .then((response) => response.json())
         .then((nftDetails) => {
           setIsLoading(false);
-          setDetails(nftDetails);
-        });
+          setDetails(Object.assign({}, nftDetails, { floorPrice: "" }));
+        })
+        .catch((error) =>
+          console.log("An error has occurred with the initial request")
+        );
     } else {
       setHasError(true);
       setErrorMessage(
@@ -57,6 +78,7 @@ function App() {
       setIsLoading(false);
     }
   };
+
   const getSalePrice = (value) => {
     setSalePrice(value);
   };
@@ -77,6 +99,7 @@ function App() {
           imageLink={details.imageLink}
           name={details.name}
           salePrice={getSalePrice}
+          floorPrice={floorPrice}
         />
         <FeeDetails royaltyFee={details.royaltyFee} salePrice={salePrice} />
       </MainContent>
