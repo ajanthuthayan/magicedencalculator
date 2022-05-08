@@ -4,6 +4,8 @@ Live Demo --> https://magicedencalculator.vercel.app/
 
 Note, I used Vercel to deploy this application and whenever the fetch request on the backend fails to respond within 5 seconds, Vercel responds with an error. Given this project was made for fun, I haven’t investigated an alternative as it works for the most part. If you have any recommendations of other free hosting alternatives let me know!
 
+(Update - May 8 2022) - Added current floor price feature, to allow users to compare payout at floor price!
+
 ## The Motivation
 The motivation for this project came from my experience with Magic Eden. As someone who was new to the NFT space at the time, a tool like this would have helped me make a better decision. I hope this helps those new to NFTs, particularly with Magic Eden and Solana NFTs. 
 
