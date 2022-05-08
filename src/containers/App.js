@@ -27,7 +27,12 @@ function App() {
 
     async function getFloorPrice() {
       const response = await fetch(
-        `https://api-mainnet.magiceden.dev/v2/collections/${details.collectionName}/stats`
+        `https://magicedencalculator-api.vercel.app/floor-price`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ collectionName: details.collectionName }),
+        }
       );
       const data = await response.json();
       setFloorPrice(data.floorPrice / floorPriceDivisor);
