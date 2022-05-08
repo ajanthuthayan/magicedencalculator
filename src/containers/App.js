@@ -3,10 +3,10 @@ import SearchBar from "../components/SearchBar";
 import MainContent from "../components/MainContent";
 import FeeDetails from "../components/FeeDetails";
 import "./App.css";
-import NFTImage from "../components/NFTImage";
 import LoadingSpinner from "../components/LoadingSpinner";
 import ErrorMessage from "../components/ErrorMessage";
 import Footer from "../components/Footer";
+import NFTMain from "../components/NFTMain";
 
 function App() {
   const [hasError, setHasError] = useState(false);
@@ -100,7 +100,7 @@ function App() {
       {hasError && <ErrorMessage errorMessage={errorMessage} />}
       {isLoading && <LoadingSpinner />}
       <MainContent>
-        <NFTImage
+        <NFTMain
           imageLink={details.imageLink}
           name={details.name}
           salePrice={getSalePrice}
