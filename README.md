@@ -1,6 +1,7 @@
 # Magic Eden Calculator
 
-Live Demo --> https://magicedencalculator.vercel.app/
+[Live Demo](https://magicedencalculator.vercel.app/)   
+[Backend API Code](https://github.com/uajanth/magicedencalculator-api)   
 
 Note, I used Vercel to deploy this application and whenever the fetch request on the backend fails to respond within 5 seconds, Vercel responds with an error. Given this project was made for fun, I haven’t investigated an alternative as it works for the most part. If you have any recommendations of other free hosting alternatives let me know!
 
