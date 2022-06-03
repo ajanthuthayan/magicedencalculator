@@ -60,21 +60,29 @@ function App() {
     setIsLoading(true);
 
     if (link.includes("https://magiceden.io/item-details/")) {
-      setHasError(false);
-      setErrorMessage("");
-      fetch("https://magicedencalculator-api.vercel.app/details", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ magicEdenLink: link }),
-      })
-        .then((response) => response.json())
-        .then((nftDetails) => {
-          setIsLoading(false);
-          setDetails(Object.assign({}, nftDetails, { floorPrice: "" }));
-        })
-        .catch((error) =>
-          console.log("An error has occurred with the initial request")
+      if (link === "https://magiceden.io/item-details/") {
+        setHasError(true);
+        setErrorMessage(
+          "Please enter a valid link! Make sure it starts with https://magiceden.io/item-details/"
         );
+        setIsLoading(false);
+      } else {
+        setHasError(false);
+        setErrorMessage("");
+        fetch("https://magicedencalculator-api.vercel.app/details", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ magicEdenLink: link }),
+        })
+          .then((response) => response.json())
+          .then((nftDetails) => {
+            setIsLoading(false);
+            setDetails(Object.assign({}, nftDetails, { floorPrice: "" }));
+          })
+          .catch((error) =>
+            console.log("An error has occurred with the initial request")
+          );
+      }
     } else {
       setHasError(true);
       setErrorMessage(
