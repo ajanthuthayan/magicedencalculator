@@ -1,0 +1,70 @@
+.container {
+  width: 80vw;
+  min-width: 400px;
+  background-color: #abcde4;
+  color: rgb(32, 49, 95);
+  padding: 0.75rem;
+  overflow-wrap: break-word;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  font-size: 0.8rem;
+}
+
+.container h3 {
+  margin-top: 0;
+}
+
+.link {
+  padding: 0.4rem;
+  background-color: #8bb5d1;
+  border-radius: 0.2rem;
+  line-height: 2rem;
+}
+
+.link:hover {
+  cursor: pointer;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 2000px;
+  }
+}

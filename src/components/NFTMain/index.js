@@ -7,7 +7,7 @@ function NFTMain(props) {
   return (
     <div>
       <NFTInfo imageLink={imageLink} name={name} />
-      <FloorPrice floorPrice={floorPrice}/>
+      <FloorPrice floorPrice={floorPrice} />
       <SaleInput salePrice={salePrice} />
     </div>
   );
