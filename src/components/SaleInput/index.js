@@ -20,7 +20,7 @@ function SaleInput(props) {
           onChange={changeSalePrice}
           step="any"
           placeholder="0.00"
-          maxlength="10"
+          maxLength="10"
           pattern="\d{0,10}(?:\.\d{0,10})?$"
         />
         <p>SOL</p>

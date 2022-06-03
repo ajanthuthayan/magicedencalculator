@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./NFTInfo.module.css";
+import styles from "./NFTImage.module.css";
 
-function NFTInfo(props) {
+function NFTImage(props) {
   const { imageLink, name } = props;
 
   if (!imageLink) {
@@ -18,4 +18,4 @@ function NFTInfo(props) {
   }
 }
 
-export default NFTInfo;
+export default NFTImage;
