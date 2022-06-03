@@ -1,6 +1,8 @@
 footer {
-  bottom: 0;
-  padding-top: rem;
+  display: flex;
+  padding-bottom: 2rem;
+  flex-direction: column;
+  justify-content: flex-end;
   width: 90vw;
   color: #938a9f;
   height: 150px;
@@ -10,7 +12,6 @@ footer {
 footer small {
   display: block;
   font-weight: 600;
-  /* background-color: red; */
 }
 
 .website {

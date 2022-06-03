@@ -3,10 +3,11 @@ import SearchBar from "../components/SearchBar";
 import MainContent from "../components/MainContent";
 import FeeDetails from "../components/FeeDetails";
 import "./App.css";
+import NFTMain from "../components/NFTMain";
 import LoadingSpinner from "../components/LoadingSpinner";
 import ErrorMessage from "../components/ErrorMessage";
 import Footer from "../components/Footer";
-import NFTMain from "../components/NFTMain";
+import Instructions from "../components/Instructions";
 
 function App() {
   const [hasError, setHasError] = useState(false);
@@ -21,6 +22,7 @@ function App() {
     collectionName: "",
   });
   const [floorPrice, setFloorPrice] = useState();
+  const [isSuccessful, setIsSuccessful] = useState(false);
 
   const fetchFloorPrice = useCallback(() => {
     const floorPriceDivisor = 1000000000;
@@ -35,7 +37,7 @@ function App() {
         }
       );
       const data = await response.json();
-      setFloorPrice((data.floorPrice / floorPriceDivisor).toFixed(2));
+      setFloorPrice(data.floorPrice / floorPriceDivisor);
     }
     getFloorPrice();
   }, [details.collectionName]);
@@ -45,6 +47,7 @@ function App() {
     if (details.royaltyFee === null) {
       setHasError(true);
       setErrorMessage("An Error Occured. Fix your link, or try again later.");
+      setIsSuccessful(false);
     }
     if (details.collectionName !== "") {
       fetchFloorPrice();
@@ -57,30 +60,44 @@ function App() {
 
   const onSearch = (event) => {
     // Input validation to check on client side if url contains root link
+    setIsSuccessful(false);
     setIsLoading(true);
 
     if (link.includes("https://magiceden.io/item-details/")) {
-      setHasError(false);
-      setErrorMessage("");
-      fetch("https://magicedencalculator-api.vercel.app/details", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ magicEdenLink: link }),
-      })
-        .then((response) => response.json())
-        .then((nftDetails) => {
-          setIsLoading(false);
-          setDetails(Object.assign({}, nftDetails, { floorPrice: "" }));
-        })
-        .catch((error) =>
-          console.log("An error has occurred with the initial request")
+      if (link === "https://magiceden.io/item-details/") {
+        setHasError(true);
+        setErrorMessage(
+          "Please enter a valid link! Make sure it starts with https://magiceden.io/item-details/"
         );
+        setIsLoading(false);
+        setIsSuccessful(false);
+      } else {
+        setHasError(false);
+        setErrorMessage("");
+        fetch("https://magicedencalculator-api.vercel.app/details", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ magicEdenLink: link }),
+        })
+          .then((response) => response.json())
+          .then((nftDetails) => {
+            setIsLoading(false);
+            setDetails(Object.assign({}, nftDetails, { floorPrice: "" }));
+          })
+          .then(() => {
+            setIsSuccessful(true);
+          })
+          .catch((error) =>
+            console.log("An error has occurred with the initial request")
+          );
+      }
     } else {
       setHasError(true);
       setErrorMessage(
         "Please enter a valid link! Make sure it starts with https://magiceden.io/item-details/"
       );
       setIsLoading(false);
+      setIsSuccessful(false);
     }
   };
 
@@ -98,16 +115,25 @@ function App() {
         disabled={isLoading}
       />
       {hasError && <ErrorMessage errorMessage={errorMessage} />}
-      {isLoading && <LoadingSpinner />}
-      <MainContent>
-        <NFTMain
-          imageLink={details.imageLink}
-          name={details.name}
-          salePrice={getSalePrice}
-          floorPrice={floorPrice}
+      {!isSuccessful && !isLoading && (
+        <Instructions
+          heading="Want to try it out?"
+          message="Paste the following link into the searchbar below to demo this web application."
+          link="https://magiceden.io/item-details/CDysFDNCCevjbgg5RhmF6y7y6Qk7hnPYbzDrYwtYkhSJ"
         />
-        <FeeDetails royaltyFee={details.royaltyFee} salePrice={salePrice} />
-      </MainContent>
+      )}
+      {isLoading && <LoadingSpinner />}
+      {isSuccessful && !hasError && (
+        <MainContent>
+          <NFTMain
+            imageLink={details.imageLink}
+            name={details.name}
+            salePrice={getSalePrice}
+            floorPrice={floorPrice}
+          />
+          <FeeDetails royaltyFee={details.royaltyFee} salePrice={salePrice} />
+        </MainContent>
+      )}
       <Footer />
     </Fragment>
   );
