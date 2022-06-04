@@ -118,7 +118,7 @@ function App() {
 			{!isSuccessful && !isLoading && (
 				<Instructions
 					heading="Want to try it out?"
-					message="Paste the following link into the searchbar above to demo this web application."
+					message="Paste the following link into the search bar above to demo this web application."
 					link="https://magiceden.io/item-details/CDysFDNCCevjbgg5RhmF6y7y6Qk7hnPYbzDrYwtYkhSJ"
 				/>
 			)}
