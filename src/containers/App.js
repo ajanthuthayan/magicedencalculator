@@ -113,6 +113,7 @@ function App() {
 				onLinkChange={onLinkChange}
 				onSearch={onSearch}
 				disabled={isLoading}
+				value={link}
 			/>
 			{hasError && <ErrorMessage errorMessage={errorMessage} />}
 			{!isSuccessful && !isLoading && (
